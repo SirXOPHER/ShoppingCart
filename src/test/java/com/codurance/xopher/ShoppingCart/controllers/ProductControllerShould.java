@@ -24,7 +24,7 @@ public class ProductControllerShould {
         when(repository.getAll()).thenReturn(getProducts());
         ProductController controller = new ProductController(repository);
 
-        ModelAndView actual = controller.index();
+        ModelAndView actual = controller.index(true);
         List<Product> products = (List<Product>) actual.getModel().get("products");
 
 
@@ -38,9 +38,21 @@ public class ProductControllerShould {
         when(repository.getAll()).thenReturn(getProducts());
         ProductController controller = new ProductController(repository);
 
-        ModelAndView actual = controller.index();
+        ModelAndView actual = controller.index(true);
 
         Assert.assertEquals("index", actual.getViewName());
+    }
+
+    @Test
+    public void returnViewWithoutProducts() {
+
+        Repository repository = mock(Repository.class);
+        when(repository.getAll()).thenReturn(getProducts());
+        ProductController controller = new ProductController(repository);
+
+        ModelAndView actual = controller.index(false);
+
+        Assert.assertFalse(actual.getModel().containsKey("products"));
     }
 
     private List<Product> getProducts() {

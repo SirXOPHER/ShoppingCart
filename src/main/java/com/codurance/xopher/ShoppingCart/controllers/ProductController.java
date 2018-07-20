@@ -5,6 +5,7 @@ import com.codurance.xopher.ShoppingCart.repositories.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -20,12 +21,14 @@ public class ProductController {
     }
 
     @RequestMapping("/")
-    public ModelAndView index() {
-
-        List<Product> products = repository.getAll();
+    public ModelAndView index(@RequestParam(value = "products", defaultValue = "false") boolean showProducts) {
 
         ModelAndView result = new ModelAndView("index");
-        result.addObject("products", products);
+
+        if (showProducts) {
+            List<Product> products = repository.getAll();
+            result.addObject("products", products);
+        }
 
         return result;
     }

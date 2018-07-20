@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Headline</h1>
+<a href="/?products=true">SHOW LIST</a>
+///
+<a href="/?products=false">HIDE LIST</a>
+<div th:if="${products} != null">
+<h1>Product list</h1>
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>SKU</th>
+        <th>PRICE</th>
+        <th>TYPE</th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.sku}"></td>
+        <td th:text="${product.value}"></td>
+        <td th:text="${product.type}"></td>
+    </tr>
+</div>
+</table>
 </body>
 </html>
