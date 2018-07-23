@@ -6,18 +6,20 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<a href="/?products=true">SHOW LIST</a>
+<a href="/?products=true" class="button">SHOW LIST</a>
 ///
-<a href="/?products=false">HIDE LIST</a>
+<a href="/?products=false" class="button">HIDE LIST</a>
 <div th:if="${products} != null">
-<h3>Product list</h3>
+<h2>PRODUCT LIST</h2>
 <table class="minimalistBlack">
+    <thead>
     <tr>
         <th>NAME</th>
         <th>SKU</th>
         <th>PRICE</th>
         <th>TYPE</th>
     </tr>
+    </thead>
     <tr th:each="product : ${products}">
         <td th:text="${product.name}"></td>
         <td th:text="${product.sku}"></td>

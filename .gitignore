@@ -23,3 +23,9 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### OSX ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
