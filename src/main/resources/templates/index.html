@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Shopping Cart App</title>
 </head>
 <body>
 <a href="/?products=true">SHOW LIST</a>
 ///
 <a href="/?products=false">HIDE LIST</a>
 <div th:if="${products} != null">
-<h1>Product list</h1>
-<table>
+<h3>Product list</h3>
+<table style="border: 1px solid black;">
     <tr>
         <th>NAME</th>
         <th>SKU</th>
