@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shopping Cart App</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 <a href="/?products=true">SHOW LIST</a>
@@ -10,7 +11,7 @@
 <a href="/?products=false">HIDE LIST</a>
 <div th:if="${products} != null">
 <h3>Product list</h3>
-<table style="border: 1px solid black;">
+<table class="minimalistBlack">
     <tr>
         <th>NAME</th>
         <th>SKU</th>
