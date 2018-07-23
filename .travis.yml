@@ -4,3 +4,7 @@ install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
   - mvn test
+deploy:
+  provider: heroku
+  api_key: ${HEROKU}
+  app: xopher-shopping-cart
